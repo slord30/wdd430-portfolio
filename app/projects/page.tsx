@@ -1,8 +1,20 @@
 import { Project } from '@/lib/projects-db';
 
+const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    return process.env.NEXT_PUBLIC_APP_URL;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return 'http://localhost:3000'; // Fallback for your local computer
+};
+
 export default async function ProjectsOverview() {
-  // Fetch from your brand new API endpoint
-  const res = await fetch('http://localhost:3000/api/projects', { cache: 'no-store' });
+  const baseUrl = getBaseUrl();
+
+
+  const res = await fetch(`${baseUrl}/api/projects`, { cache: 'no-store' });
   const data: Project[] = await res.json();
 
   return (
