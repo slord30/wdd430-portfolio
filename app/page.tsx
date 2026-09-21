@@ -1,26 +1,18 @@
+// app/page.tsx
+
+// export const dynamic = 'force-dynamic';
 import ProjectList from '../components/ProjectList';
+import { getProjects } from '@/lib/projects-db';
 
 export const metadata = {
   title: "Sarah Lord | Developer Portfolio",
   description: "A professional showcase of my web development projects, technical skills, and engineering foundations built with Next.js and Tailwind CSS.",
 };
 
-const projects = [
-  {
-    title: 'WDD 330 Course Assignments',
-    description: 'A dedicated repository containing web frontend development projects, focusing on advanced CSS layouts, dynamic JSON data fetching, and interactive user interfaces.',
-    technologies: ['HTML5', 'CSS3', 'JavaScript', 'JSON API'],
-    link: 'https://github.com'
-  },
-  {
-    title: 'Next.js Portfolio Platform',
-    description: 'A modern, responsive developer portfolio engineered with Next.js App Router structure and TypeScript, styled entirely with atomic Tailwind utility classes.',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    link: 'https://github.com'
-  }
-];
+export default async function Home() {
+  // Fetch live projects dynamically from your Neon PostgreSQL database
+  const projects = await getProjects();
 
-export default function Home() {
   return (
     <div className="space-y-12 animate-fade-in">
       {/* Hero Section */}

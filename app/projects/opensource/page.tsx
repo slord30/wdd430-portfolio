@@ -1,11 +1,11 @@
-import { Project } from '@/lib/projects-db';
+// app/projects/opensource/page.tsx
+
+// export const dynamic = 'force-dynamic';
+import { getProjects, Project } from '@/lib/projects-db';
 
 export default async function OpenSourceProjectsPage() {
-  // Fetching explicitly with the ?type=opensource query filter
-  const res = await fetch('http://localhost:3000/api/projects?type=opensource', { 
-    cache: 'no-store' 
-  });
-  const data: Project[] = await res.json();
+  // BYPASS HTTP FETCH: Query your database utility directly during server rendering
+  const data: Project[] = await getProjects('opensource');
 
   return (
     <div>

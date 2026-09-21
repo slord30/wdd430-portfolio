@@ -1,11 +1,11 @@
-import { Project } from '@/lib/projects-db';
+// app/projects/school/page.tsx
+
+// export const dynamic = 'force-dynamic';
+import { getProjects, Project } from '@/lib/projects-db';
 
 export default async function SchoolProjectsPage() {
-  // Fetching explicitly with the ?type=school query filter
-  const res = await fetch('http://localhost:3000/api/projects?type=school', { 
-    cache: 'no-store' 
-  });
-  const data: Project[] = await res.json();
+  // BYPASS HTTP FETCH: Securely pull live data directly from your database
+  const data: Project[] = await getProjects('school');
 
   return (
     <div>

@@ -1,13 +1,15 @@
 // app/projects/page.tsx
-import { getProjects, Project } from '@/lib/projects-db'; // Added getProjects here
+
+// export const dynamic = 'force-dynamic';
+import { getProjects, Project } from '@/lib/projects-db';
 
 export default async function ProjectsOverview() {
   
-  //BYPASS FETCH COMPLETELY: Call your function directly to grab the array from memory
-  const data: Project[] = getProjects(); 
+  // FETCH FROM DATABASE: Added 'await' to resolve the Promise dynamically
+  const data: Project[] = await getProjects(); 
 
   return (
-    <div>
+    <div className="w-full max-w-4xl mx-auto px-4 py-8">
       <h2 className="text-xl font-bold mb-4 text-white">All Projects Breakdown</h2>
       <ul className="space-y-4">
         {data.map((project) => (
