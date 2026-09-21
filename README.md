@@ -1,3 +1,23 @@
+# dorm-desserts
+A peer-to-peer campus marketplace built with Next.js App Router, enabling student bakers to list and sell fresh baked goods directly to dorm residents.
+
+## Tech Stack
+* **Framework:** Next.js 15 (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **Database:** Supabase / MongoDB (Pending Implementation)
+* **Authentication:** Auth.js v5 / Clerk (Pending Implementation)
+
+## Team Members
+Sarah Lord
+Teniece Busenbark
+Segundo Demetrio Alvarez Vilca
+Reese Blignaut
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
